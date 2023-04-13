@@ -1,4 +1,4 @@
-##Golang 
+## Golang 
 
 With automatic garbage collection, is `Go` really suitable as a systems programming language?
 
@@ -14,7 +14,7 @@ Best of Go:
 Go has a peculiar, but highly efficient, concurrency model focused on goroutines. Using user mode scheduling along with miniature, dynamically growing stacks will get you a level of parallelism you can only dream about in other languages
 
 
-### History repeating itself
+### History
 
 C++’s creators had their own goals: to build in higher layers of abstraction into C.
 Google conceived of Go as a replacement for C++, the same motivations behind another major language: Rust.
