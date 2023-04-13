@@ -46,5 +46,6 @@ which can amount to a fair amount of boilerplate code.
 
 OK, lets see how good or complex is CGO implementation.
 
-1. QR code parser:  C++ parser code -> C wrapper -> C library -> Go client  
-2. Library in Go -> C++ client.
+1. QR code parser:  C++ parser code -> C wrapper -> C library -> Go client: https://github.com/sigidagi/goffi 
+2. Library in Go -> C++ client: https://github.com/sigidagi/goffi
+
