@@ -1,1 +1,10 @@
-MT:Y.K9042C00KA0648G00
+### BUILD
+
+```
+cd build
+./configure
+make
+
+```
+
+It will create static lib: `libqrparser.a`

@@ -5,6 +5,7 @@
 
 int main()
 {
+    //const char* mCode = "";
     const char* mCode = "MT:Y.K9042C00KA0648G00";
     
     QSetup_t payload;

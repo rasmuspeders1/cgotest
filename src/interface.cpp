@@ -1,10 +1,14 @@
 #include "interface.h"
-#include <string>
+#include <cstring>
 #include <iostream>
 
-
 void PrintSetup(const QSetup_t* payload) {
-    
+
+    if (payload == 0) {
+        std::cerr << "Invalid/not intiliazed QSetup\n";
+        return;
+    }
+
     std::cout << "--------------\n";
     std::cout << "Version:  " << payload->Version << "\n";
     std::cout << "VendorID: " << payload->VendorID << "\n";
@@ -12,9 +16,15 @@ void PrintSetup(const QSetup_t* payload) {
     std::cout << "--------------\n";
 }
 
-int QRParse(const char* in, QSetup_t* out)
-{
+int QRParse(const char* in, QSetup_t* out) {
+
     if (out == 0) {
+        std::cerr << "Invalid/not intiliazed QSetup\n";
+        return -1;
+    }
+
+    if (in == 0 || strlen(in) == 0) {
+        std::cerr << "Invalid input \n";
         return -1;
     }
 
