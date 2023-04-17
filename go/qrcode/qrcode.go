@@ -10,7 +10,7 @@ package qrcode
 #include "interface.h"
 
 // Forward declaration of gateway function
-extern void handler_cgo(const char* text, void* context);
+extern void handler_cgo(QSetup_t *setup, void* context);
 
 */
 import "C"
@@ -22,11 +22,10 @@ import (
 
 //var testQRCode = C.CString("MT:Y.K9042C00KA0648G00")
 
-// export CallbackHandler
-func CallbackHandler(text *C.char, context unsafe.Pointer) {
-
-	sentence := C.GoString(text)
-	log.Printf("Got callback, text: %s", &sentence)
+//export CallbackHandler
+func CallbackHandler(setup *C.QSetup_t, context *C.void) {
+	//
+	log.Printf("Got callback, pin code: %d\n", setup.Passcode)
 }
 
 func Parse(code string) error {
@@ -35,6 +34,9 @@ func Parse(code string) error {
 	defer C.free(unsafe.Pointer(testQRCode))
 
 	log.Println("Start QRParser...")
+	cb := (C.callback)(unsafe.Pointer(C.handler_cgo))
+	C.RegisterCallback(cb, unsafe.Pointer(nil))
+
 	setup := &C.QSetup_t{}
 	err := C.QRParse(testQRCode, setup)
 	if err != 0 {

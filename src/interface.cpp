@@ -48,15 +48,15 @@ int QRParse(const char* in, QSetup_t* out) {
 
     // Callback     
     if (event.cb != 0) {
-        event.cb(in, event.context);
+        event.cb(out, event.context);
     }
 
     return 0;
 }
 
-void RegisterCallback(callback cb, void *context) {
+void RegisterCallback(callback cb, void* context) {
     
     // assign
     event.cb = cb;
-    event.context = context;
+    event.context = context; 
 }

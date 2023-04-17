@@ -1,12 +1,5 @@
 #pragma once
 
-typedef void (*callback)(const char *, void* context);
-
-typedef struct Event {
-    callback cb;
-    void *context;
-} Event_t;
-
 typedef enum EnumRendezvous {
     SOFTAP = 1,
     BLE = 2,
@@ -23,6 +16,13 @@ typedef struct QSetup
     unsigned long Passcode;
 } QSetup_t;
 
+
+typedef void (*callback)(QSetup_t *setup, void* context);
+
+typedef struct Event {
+    callback cb;
+    void *context;
+} Event_t;
 
 #ifdef __cplusplus
     extern "C" {
