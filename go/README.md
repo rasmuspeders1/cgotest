@@ -11,7 +11,7 @@ While Go does not allow the same fine-tuned control of memory usage as given by 
 Best of Go:
 Go has a peculiar, but highly efficient, concurrency model focused on goroutines. Using user mode scheduling along with miniature, dynamically growing stacks will get you a level of parallelism you can only dream about in other languages
 
-- [Diagram - Fast, fun for humans vs efficiency](./pics/go_concurrency.jpg)
+- [Diagram - Fast, fun for humans vs efficiency](./pics/go_efficiency.jpg)
 - [Diagram - Concurrency vs beatiful, straight code](./pics/go_concurrency.jpg)
 
 
