@@ -2,6 +2,12 @@
 #include <cstring>
 #include <iostream>
 
+// Initialize.
+Event_t event = Event_t{
+    .cb = 0,
+    .context = 0,
+};
+
 void PrintSetup(const QSetup_t* payload) {
 
     if (payload == 0) {
@@ -39,6 +45,18 @@ int QRParse(const char* in, QSetup_t* out) {
     out->Version = 1;
     out->Discriminator = 3840;
     out->Passcode = 20202021;
+
+    // Callback     
+    if (event.cb != 0) {
+        event.cb(in, event.context);
+    }
+
     return 0;
 }
 
+void RegisterCallback(callback cb, void *context) {
+    
+    // assign
+    event.cb = cb;
+    event.context = context;
+}

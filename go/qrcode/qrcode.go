@@ -8,6 +8,10 @@ package qrcode
 #include <stdlib.h>
 #include <sys/types.h>
 #include "interface.h"
+
+// Forward declaration of gateway function
+extern void handler_cgo(const char* text, void* context);
+
 */
 import "C"
 import (
@@ -18,9 +22,17 @@ import (
 
 //var testQRCode = C.CString("MT:Y.K9042C00KA0648G00")
 
+// export CallbackHandler
+func CallbackHandler(text *C.char, context unsafe.Pointer) {
+
+	sentence := C.GoString(text)
+	log.Printf("Got callback, text: %s", &sentence)
+}
+
 func Parse(code string) error {
 	//
 	var testQRCode = C.CString(code)
+	defer C.free(unsafe.Pointer(testQRCode))
 
 	log.Println("Start QRParser...")
 	setup := &C.QSetup_t{}
@@ -36,6 +48,5 @@ func Parse(code string) error {
 	log.Printf("Discriminator: %d", setup.Discriminator)
 	log.Println("--------------------------")
 
-	C.free(unsafe.Pointer(testQRCode))
 	return nil
 }

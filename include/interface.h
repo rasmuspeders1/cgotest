@@ -1,5 +1,12 @@
 #pragma once
 
+typedef void (*callback)(const char *, void* context);
+
+typedef struct Event {
+    callback cb;
+    void *context;
+} Event_t;
+
 typedef enum EnumRendezvous {
     SOFTAP = 1,
     BLE = 2,
@@ -23,6 +30,8 @@ typedef struct QSetup
 
     int QRParse(const char* in, QSetup_t* out);
     void PrintSetup(const QSetup_t* payload);
+
+    void RegisterCallback(callback cb, void *context);
 
 #ifdef __cplusplus
     }
