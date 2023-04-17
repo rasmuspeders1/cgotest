@@ -1,10 +1,9 @@
-[##](##) Golang 
+## Golang 
 
 With automatic garbage collection, is `Go` really suitable as a systems programming language?
 
 Definition of systems programming language:
 "Systems programming aims to produce software and software platforms which provide services to other software, are performance constrained, or both"
-
 Then answer is Yes.
 
 While Go does not allow the same fine-tuned control of memory usage as given by C/C++, it gives much stronger control than managed languages such as Java, C#, Python, etc.
@@ -16,7 +15,7 @@ Go has a peculiar, but highly efficient, concurrency model focused on goroutines
 [Diagram - Concurrency vs beatiful, straight code](./pics/go_concurrency.jpg)
 
 
-### History repeating itself
+### History
 
 C++’s creators had their own goals: to build in higher layers of abstraction into C.
 Google conceived of Go as a replacement for C++, the same motivations behind another major language: Rust.
