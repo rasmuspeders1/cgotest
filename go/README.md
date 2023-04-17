@@ -22,12 +22,12 @@ Google conceived of Go as a replacement for C++, the same motivations behind ano
 
 Another iteration Google `Carbon`
 
-1) C → C++, 2) C++ → Go, 3) Go → Carbon?
-
-1) C -> Go (Maybe more accurate) 
-1) C -> Zig
-            2) C++ -> Rust
-            2) C++ -> D (D is dead!?)
+1. 1) C → C++, 2) C++ → Go, 3) Go → Carbon?
+2. 1) C -> Go (Maybe more accurate) 
+3. 1) C -> Zig
+4. 
+5. 2) C++ -> Rust
+6. 2) C++ -> D (D is dead!?)
 
 Incrementally improving C++ is extremely difficult, both due to the technical debt itself and challenges with its evolution process.
 
