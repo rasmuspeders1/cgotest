@@ -4,14 +4,12 @@ use std::env;
 use std::path::PathBuf;
 
 fn main() {
-    // Tell cargo to look for shared libraries in the specified directory
-    println!("cargo:rustc-link-search=../build");
 
-    // Tell cargo to invalidate the built crate whenever the wrapper changes
-    println!("cargo:rerun-if-changed=../include/interface.h");
-    println!("cargo:rerun-if-changed=../src/interface.cpp");
-    println!("cargo:rustc-link-lib=qrparser");
-    println!("cargo:rustc-link-lib=stdc++");
+    let dst = cmake::build("../");
+    // Tell cargo to look for shared libraries in the specified directory
+    println!("cargo:rustc-link-search=native={}", dst.join("lib").display());
+    println!("cargo:rustc-link-lib=static=qrparser");
+    println!("cargo:rustc-link-lib=static=stdc++");
 
 
     // The bindgen::Builder is the main entry point
