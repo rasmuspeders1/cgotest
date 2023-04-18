@@ -20,3 +20,13 @@ make
 
 ```
 
+### Build and Run Rust client
+
+You have to have rust tools already installed. You can use use [rustup](https://rustup.rs/) to install rust.
+Rustup is the officially recommended way to install and manage your rust toolchain(s) and associated tools like cargo.
+
+```
+cd crusttest
+cargo run
+```
+

@@ -34,3 +34,5 @@ add_executable(parser_test
 
 target_link_libraries(parser_test PRIVATE ${PROJECT_NAME} 
     )
+
+install(TARGETS ${PROJECT_NAME})
