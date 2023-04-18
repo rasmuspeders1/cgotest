@@ -9,4 +9,3 @@ rm cmake_install.cmake
 rm compile_commands.json
 rm libqrparser.a
 rm parser_test
-rm libqrparser-rpi.a

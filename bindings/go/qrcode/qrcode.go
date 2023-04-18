@@ -1,8 +1,8 @@
 package qrcode
 
 /*
-#cgo CFLAGS: -I../../include
-#cgo LDFLAGS: -L../../build -lqrparser -lstdc++
+#cgo CFLAGS: -I../../../include
+#cgo LDFLAGS: -L../../../build -lqrparser -lstdc++
 
 #include <stdlib.h>
 #include <sys/types.h>

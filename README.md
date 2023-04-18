@@ -1,6 +1,7 @@
 [#](#) 
 
-### BUILD C static library
+### Build C static library
+
 
 ```
 cd build
@@ -11,10 +12,12 @@ make
 
 It will create static lib: `libqrparser.a` in `build` directory
 
-### BUILD an RUN golang client
+### Build an Run golang client
+
+Follow this [link](https://go.dev/doc/install) to install `golang` compiler
 
 ```
-cd go
+cd bindings/go
 make
 ./build/qrparser code justadummystring
 
@@ -26,7 +29,7 @@ You have to have rust tools already installed. You can use use [rustup](https://
 Rustup is the officially recommended way to install and manage your rust toolchain(s) and associated tools like cargo.
 
 ```
-cd crusttest
-cargo run
+cd binding/rust 
+cargo run justadummystring
 ```
 
