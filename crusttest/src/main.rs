@@ -6,14 +6,7 @@ include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
 use std::ffi::CString;
 use std::env;
 fn parse_qr_code(code: &str) {
-    let mut setup: QSetup = QSetup {
-        Version: 0,
-        VendorID: 0,
-        ProductID: 0,
-        Rendezvous: 0,
-        Discriminator: 0,
-        Passcode: 0,
-    };
+    let mut setup: QSetup = QSetup::default();
 
     //Create raw pointer to mutable setup var. Create from mutable reference (&mut)
     let setup_ptr: *mut QSetup = &mut setup;

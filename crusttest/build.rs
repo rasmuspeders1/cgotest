@@ -4,18 +4,21 @@ use std::env;
 use std::path::PathBuf;
 
 fn main() {
-
     let dst = cmake::build("../");
     // Tell cargo to look for shared libraries in the specified directory
-    println!("cargo:rustc-link-search=native={}", dst.join("lib").display());
+    println!(
+        "cargo:rustc-link-search=native={}",
+        dst.join("lib").display()
+    );
     println!("cargo:rustc-link-lib=static=qrparser");
     println!("cargo:rustc-link-lib=static=stdc++");
-
 
     // The bindgen::Builder is the main entry point
     // to bindgen, and lets you build up options for
     // the resulting bindings.
     let bindings = bindgen::Builder::default()
+        // I would like to have default constructors for all structs
+        .derive_default(true)
         // The input header we would like to generate
         // bindings for.
         .header("../include/interface.h")
@@ -33,4 +36,3 @@ fn main() {
         .write_to_file(out_path.join("bindings.rs"))
         .expect("Couldn't write bindings!");
 }
-
