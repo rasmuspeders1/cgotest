@@ -34,3 +34,12 @@ cd binding/rust
 cargo run justadummystring
 ```
 
+### Build and Run Zig client
+
+Install [Zig](https://ziglang.org/) compiler first
+
+```
+cd bindings/zig
+zig build
+./zig-out/bin/parser_cli
+```
