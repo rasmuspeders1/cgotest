@@ -18,8 +18,9 @@ Follow this [link](https://go.dev/doc/install) to install `golang` compiler
 
 ```
 cd bindings/go
-make
-./build/qrparser code justadummystring
+go get ./...                            // fetch all dependencies
+make                                    // compile
+./build/qrparser code justadummystring  // run
 
 ```
 
